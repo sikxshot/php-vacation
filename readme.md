@@ -27,16 +27,14 @@ Comments and suggestions are welcomed and appreciated!
 
 
 ## To-do
+- Improve error handling on required files & system settings and internal code
 - Require user confirmation when creating files in their home directory.
-- Add and improve error handling (mostly missing)
 - Improve XML_Parser class
-- Refactor 
-- Add form validation
+- Refactor and improve layout
 - Add facility for multiple message templates
 - Add support for aliases
 - Add support for additional forward rules
-- Tidy up messages
-- Centralise XLM database
+- Centralise XLM database (?)
 - Create multiple message templates (to-do code structure done - need to 
   complete CRUD)
 
@@ -47,6 +45,12 @@ or POP3 server that is working and delivering mail correctly.
 Test that you can auth with "plain text" - although the php-imap module 
 supports ssl auth I've yet to test and enable it.
 
+```
+$ telnet localhost 143
+a login username password
+a logout
+```
+
 For more information check out the Dovecot Wiki on how to test auth. If you use
 a different POP3 or IMAP server, use your own server docs for config 
 information
@@ -55,14 +59,53 @@ http://wiki2.dovecot.org/TestInstallation
 http://wiki2.dovecot.org/TestPop3Installation
 
 ## Ubuntu
-Install lamp-server
-	$ sudo apt-get install lamp-server^
-
-Install the IMAP module for php5
-	$ apt-get install php5-imap
-
+Install apache and php5
+```
+$ sudo apt-get install vacation
+$ sudo apt-get install apache2 php5-imap libapache2-mod-php5 php5
+```
+or install the entire apache, mysql, php, stack
+```
+$ sudo apt-get install lamp-server^
+$ sudo apt-get install php5-imap
+```
+Install git
+```
+$ apt-get install git
+```
+Clone repo
+```
+$ cd /usr/local/share
+$ sudo git clone http://github.com/james-m9/php-vacation.git php-vacation
+```
+if you get "...server certificate verification failed..." use the following
+```
+$ sudo env GIT_SSL_NO_VERIFY=true \
+ git clone http://github.com/james-m9/php-vacation.git php-vacation
+```
+Setup sudo
+```
+$ cd /usr/local/share/php-vacation/etc
+$ sudo cp php-vacation /etc/sudoers.d/php-vacation
+$ sudo chmod 440 /etc/sudoers.d/php-vacation
+$ chown root:root /etc/sudoers.d/php-vacation
+```
+Set up apache (I've noticed that on some Ubuntu version the "conf.d/" folder has been replaced with "conf-enabled/ & conf-available/" )
+```
+$ sudo ln -s /usr/local/share/php-vacation/etc/apache.conf \
+ /etc/apache2/conf-enabled/php-vacation.conf
+```
+or for older distros
+```
+$ sudo ln -s /usr/local/share/php-vacation/etc/apache.conf \
+ /etc/apache2/conf.d/php-vacation.conf
+```
 
 ## Centos
+
+
+## Server URL
+http://serverip/php-vacation
 
 ## Vacation History and Author(s) - from the vacation man page
 The vacation command appeared in 4.3BSD. 

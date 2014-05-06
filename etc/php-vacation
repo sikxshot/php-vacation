@@ -1,0 +1,3 @@
+www-data  ALL=(ALL) NOPASSWD:/usr/local/share/php-vacation/bin/php-vacation.sh
+www-data  ALL=(ALL) NOPASSWD:/usr/bin/vacation
+%users  ALL=(ALL) NOPASSWD:/usr/bin/vacation
