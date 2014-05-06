@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vacation enabled="0" selected="1">
+	<message name="default" selected="1">
+		<delivered>Delivered-By-The-Graces-Of: The Vacation program</delivered>
+		<precedence>Precedence: bulk</precedence>
+		<subject>Re: $SUBJECT</subject>
+		<body>I am sitting on a beach, enjoying the sun and so cannot read your email RE:"$SUBJECT".</body>
+	</message>
+</vacation>
