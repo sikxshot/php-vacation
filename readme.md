@@ -4,12 +4,12 @@ I decided to write this small app so that my customers could manage their "out
 of office messages" without having to rely on a Linux admin. 
 
 # About
-After a fair amount of Googling, I found only one other 'standalone' web app that offered a web interface to the vacation package. It was written in PHP but used MySQL and was built using Dreamweaver so it didn't quite suit my needs. It did however give me a direction and so I must thank the developer, 'damiaan'. (http://sourceforge.net/projects/vacation-web/)
-
 The name, php-vacation, is a bit of a misnomer as jQuery plays a greater roll in the program logic than PHP does. 
 
-## Apologies
+## Thanks
+After a fair amount of Googling, I found only one other 'standalone' web app that offered a web interface to the vacation package. It was written in PHP but used MySQL and was built using Dreamweaver so it didn't quite suit my needs. It did however give me a direction and so I must thank the developer, 'damiaan'. (http://sourceforge.net/projects/vacation-web/)
 
+## Apologies
 As any moderately proficient developer will notice, php-vacation has not been
 developed by a qualified programmer, just an enthusiastic hacker :) 
 
