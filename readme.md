@@ -44,16 +44,6 @@ a logout
 ```
 
 ## Ubuntu
-Install vacation, apache and php5 
-```
-$ sudo apt-get install vacation
-$ sudo apt-get install apache2 php5-imap libapache2-mod-php5 php5
-```
-Or install the entire apache, mysql, php, stack
-```
-$ sudo apt-get install lamp-server^
-$ sudo apt-get install php5-imap
-```
 Install git
 ```
 $ sudo apt-get install git
@@ -77,22 +67,32 @@ $ sudo cp php-vacation /etc/sudoers.d/php-vacation
 $ sudo chmod 440 /etc/sudoers.d/php-vacation
 $ sudo chown root:root /etc/sudoers.d/php-vacation
 ```
+Install vacation, apache and php5 
+```
+$ sudo apt-get install vacation
+$ sudo apt-get install apache2 php5-imap libapache2-mod-php5 php5
+```
+Or install the entire apache, mysql, php, stack
+```
+$ sudo apt-get install lamp-server^
+$ sudo apt-get install php5-imap
+```
+Set up php5-imap (Ubuntu > 13.10)
+```
+$ cd /etc/php5/apache2/conf.d
+$ sudo ln -s ../../conf.d/imap.ini 20-imap.ini
+```
+> Note!! on Ubuntu versions < 13.10 php5-imap should install correctly
+
 Set up apache (Ubuntu > 13.10)
 ```
-$ sudo ln -s /usr/local/share/php-vacation/etc/apache.conf \
+$ sudo ln -s /usr/local/share/php-vacation/etc/apache.conf.13.10 \
  /etc/apache2/conf-enabled/php-vacation.conf
 ```
 Ubuntu 13.04 and older
 ```
-$ sudo ln -s /usr/local/share/php-vacation/etc/apache.conf \
+$ sudo ln -s /usr/local/share/php-vacation/etc/apache.conf.pre \
  /etc/apache2/conf.d/php-vacation.conf
-```
-
-> Note!! If you get an apache error, uncomment the last line in '/usr/local/share/php-vacation/etc/apache.conf'
-
-Set up php5-imap (Ubuntu > 13.10)
-```
-$ 
 ```
 Restart apache
 ```
@@ -102,7 +102,7 @@ $ sudo service apache2 reload
 
 
 ## Server URL
-http://<serverip>/php-vacation
+http://serverip/php-vacation
 
 ## Thanks
 After a fair amount of Googling, I found only one other 'standalone' web app that offered a web interface to the vacation package. It was written in PHP but used MySQL and was built using Dreamweaver so it didn't quite suit my needs. It did however give me a direction and so I must thank the developer, 'damiaan'. (http://sourceforge.net/projects/vacation-web/)

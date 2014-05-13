@@ -1,0 +1,10 @@
+## apache config file for php-vacation
+Alias /php-vacation /usr/local/share/php-vacation/public
+
+<Directory "/usr/local/share/php-vacation/public">
+        DirectoryIndex index.php
+        Options All
+        AllowOverride All
+        ## only required for Ubuntu > 13.10
+        ## Require all granted
+</Directory>
