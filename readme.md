@@ -98,8 +98,26 @@ Restart apache
 ```
 $ sudo service apache2 reload
 ```
-## Centos
+## Centos (ver 6.5)
+The vacation rpm is part of the [Lux repo http://repo.iotti.biz/]. 
+Step 1: [Add Lux repository http://repo.iotti.biz/yum-repository.html]
+```
+# wget http://repo.iotti.biz/RPM-GPG-KEY-LUX
+# rpm --import RPM-GPG-KEY-LUX
+# cp RPM-GPG-KEY-LUX /etc/pki/rpm-gpg
+# wget http://repo.iotti.biz/centos-lux-hat.repo
+# cp centos-lux-hat.repo /etc/yum.repos.d/.
+# yum update
+# yum install vacation
+```
+Install LAMP server [link http://www.howtoforge.com/quick-n-easy-lamp-server-centos-rhel]
+```
+# 
+```
 
+## Customise
+You can easily cusotmise the UI by editing the CSS files login.css & site.css in the "php-vacation/public/css" folder. Please make backups before you make changes.
+To change the logo either replace images in the 
 
 ## Server URL
 http://serverip/php-vacation
