@@ -37,7 +37,7 @@ Edit the config/conf.php for server specific settings. Test that you can auth wi
 
 Simple IMAP auth test
 ```
-$ telnet localhost 143
+telnet localhost 143
 a login username password
 ...
 a logout
@@ -46,57 +46,64 @@ a logout
 ## Ubuntu
 Install git
 ```
-$ sudo apt-get install git
+sudo apt-get install git
+```
+On Ubuntu Lucid (10.0.4)
+```
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git
 ```
 Clone repo
 ```
-$ cd /usr/local/share
-$ sudo git clone http://github.com/james-m9/php-vacation.git php-vacation
+cd /usr/local/share
+sudo git clone http://github.com/james-m9/php-vacation.git php-vacation
 ```
 
 > Note!! if you get "...server certificate verification failed..." use the following
 
 ```
-$ sudo env GIT_SSL_NO_VERIFY=true \
+sudo env GIT_SSL_NO_VERIFY=true \
  git clone http://github.com/james-m9/php-vacation.git php-vacation
 ```
 Set up sudo
 ```
-$ cd /usr/local/share/php-vacation/etc
-$ sudo cp php-vacation /etc/sudoers.d/php-vacation
-$ sudo chmod 440 /etc/sudoers.d/php-vacation
-$ sudo chown root:root /etc/sudoers.d/php-vacation
+cd /usr/local/share/php-vacation/etc
+sudo cp php-vacation /etc/sudoers.d/php-vacation
+sudo chmod 440 /etc/sudoers.d/php-vacation
+sudo chown root:root /etc/sudoers.d/php-vacation
 ```
 Install vacation, apache and php5 
 ```
-$ sudo apt-get install vacation
-$ sudo apt-get install apache2 php5-imap libapache2-mod-php5 php5
+sudo apt-get install vacation
+sudo apt-get install apache2 php5-imap libapache2-mod-php5 php5
 ```
 Or install the entire apache, mysql, php, stack
 ```
-$ sudo apt-get install lamp-server^
-$ sudo apt-get install php5-imap
+sudo apt-get install lamp-server^
+sudo apt-get install php5-imap
 ```
 Set up php5-imap (Ubuntu > 13.10)
 ```
-$ cd /etc/php5/apache2/conf.d
-$ sudo ln -s ../../conf.d/imap.ini 20-imap.ini
+cd /etc/php5/apache2/conf.d
+sudo ln -s ../../conf.d/imap.ini 20-imap.ini
 ```
 > Note!! on Ubuntu versions < 13.10 php5-imap should install correctly
 
 Set up apache (Ubuntu > 13.10)
 ```
-$ sudo ln -s /usr/local/share/php-vacation/etc/apache.conf.13.10 \
+sudo ln -s /usr/local/share/php-vacation/etc/apache.conf.13.10 \
  /etc/apache2/conf-enabled/php-vacation.conf
 ```
 Ubuntu 13.04 and older
 ```
-$ sudo ln -s /usr/local/share/php-vacation/etc/apache.conf.pre \
+sudo ln -s /usr/local/share/php-vacation/etc/apache.conf.pre \
  /etc/apache2/conf.d/php-vacation.conf
 ```
 Restart apache
 ```
-$ sudo service apache2 reload
+sudo service apache2 reload
 ```
 ## Centos (ver 6.5)
 The vacation rpm is part of the [Lux repo http://repo.iotti.biz/]. 
